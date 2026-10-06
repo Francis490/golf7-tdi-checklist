@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check-list Tagliando — VW Golf 7 1.6 TDI 105 CV</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --blue-dark: #0d47a1;
+    --blue: #1565c0;
+    --green: #2e7d32;
+    --yellow: #f9a825;
+    --orange: #ef6c00;
+    --red: #c62828;
+    --dark: #37474f;
+    --gray-line: #cfd8dc;
+  }
+
+  html, body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    color: #1a1a1a;
+    font-size: 11px;
+    background: #eceff1;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .toolbar {
+    position: fixed;
+    top: 15px; right: 15px;
+    z-index: 100;
+    display: flex; gap: 10px;
+  }
+  .btn {
+    background: var(--blue-dark);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: background 0.2s;
+  }
+  .btn:hover { background: #08306b; }
+  .btn.secondary { background: #455a64; }
+  .btn.secondary:hover { background: #263238; }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 20px auto;
+    background: #fff;
+    padding: 12mm 14mm;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    position: relative;
+  }
+
+  header {
+    border-bottom: 3px solid var(--blue-dark);
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  header h1 {
+    font-size: 17px;
+    color: var(--blue-dark);
+    line-height: 1.2;
+  }
+  header .sub {
+    font-size: 10px;
+    color: #666;
+    margin-top: 2px;
+  }
+  header .logo {
+    font-size: 10px;
+    color: #666;
+    text-align: right;
+    line-height: 1.3;
+  }
+  header .logo strong { color: var(--blue-dark); font-size: 12px; }
+
+  .meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 18px;
+    margin-bottom: 12px;
+    font-size: 10.5px;
+  }
+  .meta .field {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  .meta .label { color: #455a64; font-weight: 600; white-space: nowrap; }
+  .meta .line {
+    flex: 1;
+    border-bottom: 1px dotted #90a4ae;
+    min-height: 14px;
+  }
+
+  section { margin-bottom: 10px; }
+
+  h2 {
+    font-size: 11.5px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: #fff;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  h2.green  { background: var(--green); }
+  h2.yellow { background: var(--yellow); color: #1a1a1a; }
+  h2.orange { background: var(--orange); }
+  h2.red    { background: var(--red); }
+  h2.dark   { background: var(--dark); }
+  h2.blue   { background: var(--blue); }
+
+  ul { list-style: none; }
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    padding: 3px 4px;
+    border-bottom: 1px dotted var(--gray-line);
+    font-size: 10.5px;
+    line-height: 1.35;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  li:last-child { border-bottom: none; }
+
+  .cb {
+    flex: 0 0 auto;
+    width: 11px; height: 11px;
+    border: 1.3px solid #37474f;
+    border-radius: 2px;
+    margin-top: 1px;
+    display: inline-block;
+  }
+
+  li strong { color: #0d47a1; }
+  .note {
+    color: #666;
+    font-style: italic;
+    font-size: 9.5px;
+    display: block;
+    margin-top: 1px;
+  }
+
+  table.sign {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10.5px;
+    margin-top: 6px;
+    page-break-inside: avoid;
+  }
+  table.sign th, table.sign td {
+    border: 1px solid #90a4ae;
+    padding: 8px 10px;
+    text-align: left;
+    height: 34px;
+  }
+  table.sign th {
+    background: #e3f2fd;
+    color: var(--blue-dark);
+    font-weight: 600;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 8mm;
+    left: 14mm; right: 14mm;
+    font-size: 8.5px;
+    color: #888;
+    text-align: center;
+    border-top: 1px solid var(--gray-line);
+    padding-top: 4px;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  @media print {
+    html, body {
+      background: #fff;
+      font-size: 10.5px;
+    }
+    .toolbar { display: none !important; }
+    .page {
+      width: 210mm;
+      min-height: auto;
+      margin: 0;
+      padding: 10mm 12mm;
+      box-shadow: none;
+      page-break-after: always;
+    }
+    .page:last-child { page-break-after: auto; }
+    h1 { font-size: 16px; }
+    h2 { font-size: 11px; padding: 4px 8px; }
+    li { font-size: 10px; padding: 2.5px 3px; }
+    footer {
+      position: static;
+      margin-top: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button class="btn" onclick="window.print()">🖨️ Stampa / Salva PDF</button>
+  <button class="btn secondary" onclick="toggleChecks()">✔️ Seleziona tutto</button>
+</div>
+
+<div class="page">
+  <header>
+    <div>
+      <h1>✅ Check-list Tagliando</h1>
+      <div class="sub">Volkswagen Golf 7 — 1.6 TDI 105 CV</div>
+    </div>
+    <div class="logo">
+      <strong>Service Plan</strong><br>
+      Documento di manutenzione
+    </div>
+  </header>
+
+  <div class="meta">
+    <div class="field"><span class="label">📅 Data:</span><span class="line"></span></div>
+    <div class="field"><span class="label">📊 Km attuali:</span><span class="line"></span></div>
+    <div class="field"><span class="label">🔧 Officina:</span><span class="line"></span></div>
+    <div class="field"><span class="label">👤 Meccanico:</span><span class="line"></span></div>
+    <div class="field"><span class="label">🔖 Targa:</span><span class="line"></span></div>
+    <div class="field"><span class="label">💰 Costo totale:</span><span class="line"></span></div>
+  </div>
+
+  <section>
+    <h2 class="green">🟢 Ogni 15.000 km o 12 mesi</h2>
+    <ul>
+      <li><span class="cb"></span><div><strong>Olio motore e filtro olio</strong> — Sostituzione<span class="note">Specifica VW 507 00 · 5W-30 · capacità ~4,7 L</span></div></li>
+      <li><span class="cb"></span><div><strong>Filtro abitacolo (antipolline)</strong> — Sostituzione<span class="note">Garantisce aria pulita nell'abitacolo</span></div></li>
+      <li><span class="cb"></span><div><strong>Liquidi</strong> — Controllo e rabbocco<span class="note">Refrigerante, freni, lavavetri</span></div></li>
+      <li><span class="cb"></span><div><strong>Pneumatici</strong> — Pressione e usura<span class="note">Inclusa ruota scorta · min 1,6 mm (consigliati 3 mm)</span></div></li>
+      <li><span class="cb"></span><div><strong>Illuminazione</strong> — Controllo<span class="note">Fari, indicatori, stop, fendinebbia</span></div></li>
+      <li><span class="cb"></span><div><strong>Tergicristalli</strong> — Controllo<span class="note">Spazzole e liquido lavavetri</span></div></li>
+      <li><span class="cb"></span><div><strong>Indicatore service</strong> — Reset<span class="note">Tasto 0.0/SET o infotainment</span></div></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="yellow">🟡 Ogni 30.000 km o 24 mesi</h2>
+    <ul>
+      <li><span class="cb"></span><div><strong>Operazioni tagliando 15.000 km</strong> — Eseguire</div></li>
+      <li><span class="cb"></span><div><strong>Filtro aria motore</strong> — Sostituzione<span class="note">Mantiene prestazioni e consumi</span></div></li>
+      <li><span class="cb"></span><div><strong>Liquido freni</strong> — Sostituzione<span class="note">Sicurezza impianto frenante</span></div></li>
+      <li><span class="cb"></span><div><strong>Olio cambio manuale</strong> — Sostituzione<span class="note">Se non previsto diversamente</span></div></li>
+      <li><span class="cb"></span><div><strong>Batteria</strong> — Controllo<span class="note">Test capacità e carica (dopo 100.000 km)</span></div></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="orange">🟠 Ogni 60.000 km</h2>
+    <ul>
+      <li><span class="cb"></span><div><strong>Operazioni tagliando 30.000 km</strong> — Eseguire</div></li>
+      <li><span class="cb"></span><div><strong>Filtro carburante</strong> — Sostituzione<span class="note">Protegge il sistema di iniezione</span></div></li>
+      <li><span class="cb"></span><div><strong>Olio cambio DSG</strong> — Sostituzione<span class="note">Se cambio automatico doppia frizione</span></div></li>
+      <li><span class="cb"></span><div><strong>Liquido refrigerante</strong> — Sostituzione<span class="note">Mantiene efficienza raffreddamento</span></div></li>
+      <li><span class="cb"></span><div><strong>Valvola EGR</strong> — Pulizia preventiva<span class="note">Importante per uso urbano / percorsi brevi</span></div></li>
+    </ul>
+  </section>
+
+  <footer>
+    Documento di supporto — non sostituisce il libretto Uso e Manutenzione ufficiale Volkswagen.
+  </footer>
+</div>
+
+<div class="page">
+  <section>
+    <h2 class="red">🔴 Ogni 90.000 km</h2>
+    <ul>
+      <li><span class="cb"></span><div><strong>Operazioni tagliando 60.000 km</strong> — Eseguire</div></li>
+      <li><span class="cb"></span><div><strong>Filtro aria motore</strong> — Sostituzione<span class="note">Se non già eseguita</span></div></li>
+      <li><span class="cb"></span><div><strong>Filtro carburante</strong> — Sostituzione<span class="note">Se non già eseguita</span></div></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="dark">⚫ Ogni 120.000 – 210.000 km</h2>
+    <ul>
+      <li><span class="cb"></span><div><strong>Cinghia distribuzione + pompa acqua</strong> — Sostituzione<span class="note">Max 10 anni / 120.000 km in condizioni gravose · sostituire anche tenditori</span></div></li>
+      <li><span class="cb"></span><div><strong>Cinghia servizi</strong> — Sostituzione<span class="note">Insieme a distribuzione oppure 70.000–120.000 km</span></div></li>
+      <li><span class="cb"></span><div><strong>Candelette</strong> — Sostituzione<span class="note">Durata 80.000–100.000 km · sintomi avviamento a freddo difficile</span></div></li>
+      <li><span class="cb"></span><div><strong>Pastiglie freni</strong> — Sostituzione<span class="note">30.000–70.000 km · verificare a ogni tagliando</span></div></li>
+      <li><span class="cb"></span><div><strong>Dischi freni</strong> — Sostituzione<span class="note">60.000–120.000 km</span></div></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="blue">🔍 Controlli specifici 1.6 TDI</h2>
+    <ul>
+      <li><span class="cb"></span><div><strong>Turbocompressore</strong> — Controllo visivo/uditivo<span class="note">Modelli pre-2015: perdite olio, rumori anomali</span></div></li>
+      <li><span class="cb"></span><div><strong>Filtro antiparticolato (DPF/FAP)</strong> — Rigenerazione<span class="note">20 min autostrada a 2000–2500 giri/min</span></div></li>
+      <li><span class="cb"></span><div><strong>Valvola EGR</strong> — Pulizia periodica<span class="note">Consigliata ogni 60.000 km</span></div></li>
+      <li><span class="cb"></span><div><strong>Iniettori</strong> — Controllo<span class="note">Sensibili a qualità carburante · verificare serraggio se rumorosità</span></div></li>
+      <li><span class="cb"></span><div><strong>Liquido refrigerante</strong> — Controllo livello e rabbocco</div></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="blue">✍️ Firme e annotazioni</h2>
+    <table class="sign">
+      <thead>
+        <tr><th style="width:20%">Ruolo</th><th style="width:30%">Nome</th><th style="width:30%">Firma</th><th style="width:20%">Data</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Meccanico</td><td></td><td></td><td></td></tr>
+        <tr><td>Cliente</td><td></td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    Documento di supporto — non sostituisce il libretto Uso e Manutenzione ufficiale Volkswagen.
+  </footer>
+</div>
+
+<script>
+  let allOn = false;
+  function toggleChecks() {
+    allOn = !allOn;
+    document.querySelectorAll('.cb').forEach(cb => {
+      cb.style.background = allOn ? '#0d47a1' : 'transparent';
+      cb.innerHTML = allOn ? '<span style="position:absolute;left:1px;top:-3px;color:#fff;font-size:11px;font-weight:bold;">✓</span>' : '';
+      if (allOn) cb.style.position = 'relative';
+    });
+  }
+</script>
+
+</body>
+</html>
