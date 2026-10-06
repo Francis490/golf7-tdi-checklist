@@ -1,0 +1,223 @@
+{
+  "veicolo": {
+    "marca": "Volkswagen",
+    "modello": "Golf 7",
+    "motore": "1.6 TDI",
+    "potenza_cv": 105,
+    "specifica_olio": "VW 507 00",
+    "viscosita_olio": "5W-30",
+    "capacita_olio_litri": 4.7
+  },
+  "intervalli": [
+    {
+      "categoria": "15.000 km / 12 mesi",
+      "colore": "green",
+      "interventi": [
+        {
+          "id": "olio-filtro",
+          "nome": "Olio motore + filtro olio",
+          "km": 15000,
+          "mesi": 12,
+          "note": "VW 507 00 · 5W-30 · ~4,7 L"
+        },
+        {
+          "id": "filtro-abitacolo",
+          "nome": "Filtro abitacolo (antipolline)",
+          "km": 15000,
+          "mesi": 12,
+          "note": "Sostituzione"
+        },
+        {
+          "id": "controllo-liquidi",
+          "nome": "Controllo liquidi",
+          "km": 15000,
+          "mesi": 12,
+          "note": "Refrigerante · freni · lavavetri"
+        },
+        {
+          "id": "pneumatici",
+          "nome": "Pneumatici — pressione e usura",
+          "km": 15000,
+          "mesi": 12,
+          "note": "Min 1,6 mm · consigliati 3 mm"
+        },
+        {
+          "id": "illuminazione",
+          "nome": "Illuminazione",
+          "km": 15000,
+          "mesi": 12,
+          "note": "Fari · stop · indicatori · fendinebbia"
+        },
+        {
+          "id": "tergicristalli",
+          "nome": "Tergicristalli",
+          "km": 15000,
+          "mesi": 12,
+          "note": "Spazzole e liquido lavavetri"
+        },
+        {
+          "id": "reset-service",
+          "nome": "Reset indicatore service",
+          "km": 15000,
+          "mesi": 12,
+          "note": "Tasto 0.0/SET o infotainment"
+        }
+      ]
+    },
+    {
+      "categoria": "30.000 km / 24 mesi",
+      "colore": "yellow",
+      "interventi": [
+        {
+          "id": "filtro-aria",
+          "nome": "Filtro aria motore",
+          "km": 30000,
+          "mesi": 24,
+          "note": "Sostituzione"
+        },
+        {
+          "id": "liquido-freni",
+          "nome": "Liquido freni",
+          "km": 30000,
+          "mesi": 24,
+          "note": "Sostituzione"
+        },
+        {
+          "id": "olio-cambio-manuale",
+          "nome": "Olio cambio manuale",
+          "km": 30000,
+          "mesi": 24,
+          "note": "Se non previsto diversamente"
+        },
+        {
+          "id": "batteria",
+          "nome": "Batteria — test capacità",
+          "km": 30000,
+          "mesi": 24,
+          "note": "Test capacità e carica"
+        }
+      ]
+    },
+    {
+      "categoria": "60.000 km",
+      "colore": "orange",
+      "interventi": [
+        {
+          "id": "filtro-carburante",
+          "nome": "Filtro carburante",
+          "km": 60000,
+          "mesi": 0,
+          "note": "Protegge il sistema di iniezione"
+        },
+        {
+          "id": "olio-dsg",
+          "nome": "Olio cambio DSG",
+          "km": 60000,
+          "mesi": 0,
+          "note": "Solo cambio automatico doppia frizione"
+        },
+        {
+          "id": "liquido-refrigerante",
+          "nome": "Liquido refrigerante",
+          "km": 60000,
+          "mesi": 48,
+          "note": "Sostituzione"
+        },
+        {
+          "id": "pulizia-egr",
+          "nome": "Pulizia valvola EGR",
+          "km": 60000,
+          "mesi": 0,
+          "note": "Preventiva per uso urbano"
+        }
+      ]
+    },
+    {
+      "categoria": "90.000 km",
+      "colore": "red",
+      "interventi": [
+        {
+          "id": "filtro-aria-90k",
+          "nome": "Filtro aria motore",
+          "km": 90000,
+          "mesi": 0,
+          "note": "Se non già eseguita"
+        },
+        {
+          "id": "filtro-carburante-90k",
+          "nome": "Filtro carburante",
+          "km": 90000,
+          "mesi": 0,
+          "note": "Se non già eseguita"
+        }
+      ]
+    },
+    {
+      "categoria": "120.000 – 210.000 km",
+      "colore": "dark",
+      "interventi": [
+        {
+          "id": "cinghia-distribuzione",
+          "nome": "Cinghia distribuzione + pompa acqua",
+          "km": 210000,
+          "mesi": 120,
+          "note": "Max 10 anni · sostituire anche tenditori"
+        },
+        {
+          "id": "cinghia-servizi",
+          "nome": "Cinghia servizi",
+          "km": 120000,
+          "mesi": 0,
+          "note": "Insieme a distribuzione"
+        },
+        {
+          "id": "candelette",
+          "nome": "Candelette",
+          "km": 100000,
+          "mesi": 0,
+          "note": "Durata 80.000–100.000 km"
+        },
+        {
+          "id": "pastiglie-freni",
+          "nome": "Pastiglie freni",
+          "km": 70000,
+          "mesi": 0,
+          "note": "Verificare a ogni tagliando"
+        },
+        {
+          "id": "dischi-freni",
+          "nome": "Dischi freni",
+          "km": 120000,
+          "mesi": 0,
+          "note": "Intervallo indicativo"
+        }
+      ]
+    }
+  ],
+  "controlli_specifici": [
+    {
+      "id": "turbocompressore",
+      "nome": "Turbocompressore — controllo visivo/uditivo",
+      "mesi": 12,
+      "note": "Modelli pre-2015 · possibili perdite olio o rumori anomali"
+    },
+    {
+      "id": "dpf",
+      "nome": "Rigenerazione DPF/FAP",
+      "mesi": 6,
+      "note": "20 min autostrada a 2000–2500 giri/min"
+    },
+    {
+      "id": "egr-ricontrollo",
+      "nome": "Valvola EGR — pulizia periodica",
+      "mesi": 12,
+      "note": "Consigliata ogni 60.000 km"
+    },
+    {
+      "id": "iniettori",
+      "nome": "Iniettori — controllo",
+      "mesi": 12,
+      "note": "Verificare serraggio se rumorosità"
+    }
+  ]
+}
