@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚗 VW Golf 7 1.6 TDI — Check-list Tagliando</title>
+<meta name="description" content="Check-list completa per il tagliando della Volkswagen Golf 7 1.6 TDI 105 CV. Markdown, HTML, CSV, Google Sheets e notifiche email automatiche.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --blue-dark: #0d47a1;
+    --blue: #1565c0;
+    --blue-light: #42a5f5;
+    --green: #2e7d32;
+    --yellow: #f9a825;
+    --orange: #ef6c00;
+    --red: #c62828;
+    --dark: #1a1a1a;
+    --gray: #455a64;
+    --bg: #f5f7fa;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Segoe UI", Roboto, -apple-system, sans-serif;
+    color: var(--dark);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .hero {
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 60%, var(--blue-light) 100%);
+    color: #fff;
+    padding: 60px 20px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+  .badge-top {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+  }
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 800;
+    margin-bottom: 15px;
+    line-height: 1.15;
+  }
+  .hero h1 .car { font-size: 1.1em; }
+  .hero p {
+    font-size: clamp(15px, 2vw, 18px);
+    opacity: 0.95;
+    margin-bottom: 35px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: #fff;
+    color: var(--blue-dark);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+  .btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.6);
+  }
+  .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: #fff; }
+  .stats {
+    max-width: 1000px;
+    margin: -50px auto 0;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    position: relative;
+    z-index: 2;
+  }
+  .stat-card {
+    background: #fff;
+    padding: 22px 18px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-3px); }
+  .stat-card .num {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--blue-dark);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-card .label {
+    font-size: 12px;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+  section { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+  h2.section-title {
+    font-size: clamp(22px, 3vw, 30px);
+    color: var(--blue-dark);
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 800;
+  }
+  .section-sub {
+    text-align: center;
+    color: var(--gray);
+    margin-bottom: 40px;
+    font-size: 15px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 26px 22px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid #e8ecf1;
+    transition: all 0.25s;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--blue);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(13,71,161,0.12);
+    border-color: var(--blue-light);
+  }
+  .card:hover::before { transform: scaleX(1); }
+  .card .icon {
+    font-size: 36px;
+    margin-bottom: 14px;
+    line-height: 1;
+  }
+  .card h3 {
+    font-size: 17px;
+    color: var(--blue-dark);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .card p {
+    font-size: 13.5px;
+    color: var(--gray);
+    line-height: 1.5;
+    flex: 1;
+    margin-bottom: 16px;
+  }
+  .card .link-arrow {
+    color: var(--blue);
+    font-weight: 600;
+    font-size: 13.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card .link-arrow::after {
+    content: "→";
+    transition: transform 0.2s;
+  }
+  .card:hover .link-arrow::after { transform: translateX(4px); }
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+  }
+  .tl-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    border-left: 5px solid;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .tl-item.green  { border-color: var(--green); }
+  .tl-item.yellow { border-color: var(--yellow); }
+  .tl-item.orange { border-color: var(--orange); }
+  .tl-item.red    { border-color: var(--red); }
+  .tl-item .km {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+  .tl-item .desc {
+    font-size: 13px;
+    color: var(--gray);
+  }
+  footer {
+    background: var(--dark);
+    color: #aaa;
+    padding: 40px 20px 30px;
+    text-align: center;
+    margin-top: 80px;
+    font-size: 13px;
+  }
+  footer a { color: var(--blue-light); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  footer .disclaimer {
+    max-width: 700px;
+    margin: 20px auto 0;
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-content">
+    <span class="badge-top">🇮🇹 Check-list manutenzione</span>
+    <h1><span class="car">🚗</span> VW Golf 7<br>1.6 TDI 105 CV</h1>
+    <p>Check-list completa, modificabile e stampabile per il tagliando della tua Volkswagen Golf 7. In Markdown, HTML, CSV e Google Sheets — con notifiche email automatiche.</p>
+    <div class="cta-group">
+      <a href="checklist/checklist.html" class="btn btn-primary">🖨️ Apri check-list stampabile</a>
+      <a href="https://github.com/Francis490/golf7-tdi-checklist" class="btn btn-outline">⭐ Vedi su GitHub</a>
+    </div>
+  </div>
+</div>
+<div class="stats">
+  <div class="stat-card"><div class="num">25+</div><div class="label">Interventi</div></div>
+  <div class="stat-card"><div class="num">6</div><div class="label">Formati</div></div>
+  <div class="stat-card"><div class="num">🔔</div><div class="label">Email auto</div></div>
+  <div class="stat-card"><div class="num">MIT</div><div class="label">Licenza</div></div>
+</div>
+<section>
+  <h2 class="section-title">📦 Formati disponibili</h2>
+  <p class="section-sub">Scegli quello che fa per te — dal PDF stampabile al foglio di calcolo smart</p>
+  <div class="grid">
+    <a href="checklist/checklist.html" class="card">
+      <div class="icon">🖨️</div>
+      <h3>HTML stampabile A4</h3>
+      <p>Pagina ottimizzata per la stampa in formato A4 con pulsante "Salva come PDF". Checkbox da spuntare a penna.</p>
+      <span class="link-arrow">Apri</span>
+    </a>
+    <a href="checklist/checklist.md" class="card">
+      <div class="icon">📝</div>
+      <h3>Markdown interattivo</h3>
+      <p>File Markdown con checkbox cliccabili. Perfetto per Obsidian, Notion, VS Code o direttamente su GitHub.</p>
+      <span class="link-arrow">Apri</span>
+    </a>
+    <a href="checklist/checklist-data.json" class="card">
+      <div class="icon">🔢</div>
+      <h3>JSON strutturato</h3>
+      <p>Dati machine-readable per integrare la check-list in app, siti web o tool personalizzati.</p>
+      <span class="link-arrow">Apri</span>
+    </a>
+    <a href="https://github.com/Francis490/golf7-tdi-checklist/blob/main/sheets/template-import.csv" class="card">
+      <div class="icon">📊</div>
+      <h3>CSV per Excel / Sheets</h3>
+      <p>Tabella pronta da importare con calcolo automatico delle scadenze km e tempo.</p>
+      <span class="link-arrow">Apri</span>
+    </a>
+    <a href="https://github.com/Francis490/golf7-tdi-checklist/blob/main/sheets/apps-script-notifiche.js" class="card">
+      <div class="icon">🔔</div>
+      <h3>Notifiche email</h3>
+      <p>Script Google Apps per ricevere email automatiche quando un intervento è in scadenza o scaduto.</p>
+      <span class="link-arrow">Apri</span>
+    </a>
+    <a href="https://github.com/Francis490/golf7-tdi-checklist/tree/main/docs" class="card">
+      <div class="icon">📚</div>
+      <h3>Documentazione</h3>
+      <p>Guide dettagliate su intervalli di manutenzione, problemi noti del 1.6 TDI e rimedi consigliati.</p>
+      <span class="link-arrow">Apri</span>
+    </a>
+  </div>
+</section>
+<section>
+  <h2 class="section-title">🛠️ Intervalli principali</h2>
+  <p class="section-sub">Panoramica veloce delle scadenze di manutenzione</p>
+  <div class="timeline">
+    <div class="tl-item green"><div class="km">15.000 km</div><div class="desc">Olio motore, filtro olio, filtro abitacolo, controlli base</div></div>
+    <div class="tl-item yellow"><div class="km">30.000 km</div><div class="desc">+ Filtro aria, liquido freni, olio cambio manuale</div></div>
+    <div class="tl-item orange"><div class="km">60.000 km</div><div class="desc">+ Filtro carburante, liquido refrigerante, pulizia EGR</div></div>
+    <div class="tl-item red"><div class="km">120.000+ km</div><div class="desc">+ Cinghia distribuzione, candelette, pastiglie/dischi</div></div>
+  </div>
+</section>
+<section>
+  <h2 class="section-title">🚀 Come iniziare in 3 passi</h2>
+  <p class="section-sub">Da zero alla check-list personalizzata in meno di 5 minuti</p>
+  <div class="grid">
+    <div class="card"><div class="icon">1️⃣</div><h3>Stampa o clona</h3><p>Apri l'HTML per stamparlo o clona il repository per modificarlo. Tutti i file sono liberi.</p></div>
+    <div class="card"><div class="icon">2️⃣</div><h3>Importa in Google Sheets</h3><p>Carica il CSV per avere il calcolo automatico di km e date di scadenza con semafori colorati.</p></div>
+    <div class="card"><div class="icon">3️⃣</div><h3>Attiva le notifiche</h3><p>Installa lo script Apps Script e ricevi email solo quando serve davvero un intervento.</p></div>
+  </div>
+</section>
+<footer>
+  <p>Realizzato con ❤️ per la community VW Golf</p>
+  <p style="margin-top:8px;">
+    <a href="https://github.com/Francis490/golf7-tdi-checklist">GitHub</a> ·
+    <a href="https://github.com/Francis490/golf7-tdi-checklist/issues">Segnala un problema</a> ·
+    <a href="LICENSE">Licenza MIT</a>
+  </p>
+  <div class="disclaimer">
+    ⚠️ <strong>Disclaimer:</strong> questo progetto è solo a scopo informativo.
+    Gli intervalli di manutenzione possono variare in base a anno di produzione,
+    condizioni d'uso, clima e allestimento. Fai sempre riferimento al
+    <strong>libretto Uso e Manutenzione ufficiale Volkswagen</strong>.
+  </div>
+</footer>
+</body>
+</html>
