@@ -1,0 +1,58 @@
+name: 📄 Genera PDF check-list
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'checklist/checklist.html'
+  workflow_dispatch:
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Installa Puppeteer
+        run: npm install puppeteer
+
+      - name: Genera PDF dal file HTML
+        run: |
+          node -e "
+          const puppeteer = require('puppeteer');
+          (async () => {
+            const browser = await puppeteer.launch({
+              args: ['--no-sandbox', '--disable-setuid-sandbox']
+            });
+            const page = await browser.newPage();
+            const fileUrl = 'file://' + process.cwd() + '/checklist/checklist.html';
+            await page.goto(fileUrl, { waitUntil: 'networkidle0' });
+            await page.pdf({
+              path: 'checklist/checklist.pdf',
+              format: 'A4',
+              printBackground: true,
+              margin: {
+                top: '10mm',
+                right: '12mm',
+                bottom: '10mm',
+                left: '12mm'
+              }
+            });
+            await browser.close();
+            console.log('✅ PDF generato con successo');
+          })();
+          "
+
+      - name: Upload PDF come artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: checklist-pdf
+          path: checklist/checklist.pdf
+          retention-days: 30
