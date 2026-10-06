@@ -15,10 +15,10 @@ Volkswagen Golf 7 1.6 TDI 105 CV.
 |--------|------|-----|
 | 📝 Markdown | [`checklist/checklist.md`](checklist/checklist.md) | Editor di testo / Obsidian / GitHub |
 | 🖨️ HTML A4 | [`checklist/checklist.html`](checklist/checklist.html) | Stampa / Salva come PDF |
-| 📊 CSV | [`checklist/checklist.csv`](checklist/checklist.csv) | Excel / Google Sheets |
 | 🔢 JSON | [`checklist/checklist-data.json`](checklist/checklist-data.json) | App web / integrazioni |
 | ☁️ Google Sheets | [`sheets/template-import.csv`](sheets/template-import.csv) | Cloud + condivisione |
 | 🔔 Script email | [`sheets/apps-script-notifiche.js`](sheets/apps-script-notifiche.js) | Notifiche automatiche |
+| 🏠 Landing page | [`index.html`](index.html) | Vetrina del progetto (GitHub Pages) |
 
 ---
 
